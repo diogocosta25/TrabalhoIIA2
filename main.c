@@ -4,7 +4,7 @@
 
 #define MAX_C 500
 
-double distantcias [MAX_C][MAX_C];
+double distancias [MAX_C][MAX_C];
 
 typedef struct{
     int locais[MAX_C];
@@ -13,6 +13,10 @@ typedef struct{
 }Solucao;
 
 int C, m;
+
+int obter_id(char *str){
+    return atoi(&str[1])-1;
+}
 
 int carregar_instancia(const char *path){
     FILE *f = fopen(path, "r");
@@ -82,7 +86,7 @@ double avaliar_solucao(const Solucao *s){
 
 }
 
-int main(int agrc, char **argv){
+int main(int argc, char **argv){
     if(argc < 2){
         fprintf(stderr, "Uso: %s <ficheiro_instancia>\n", argv[0]);
         return EXIT_FAILURE;
@@ -92,7 +96,7 @@ int main(int agrc, char **argv){
         return EXIT_FAILURE;
     }
 
-    printf("Instancia carregada com sucesso: C=%d, m=%d\n", C, m)
+    printf("Instancia carregada com sucesso: C=%d, m=%d\n", C, m);
     return EXIT_SUCCESS;
 }
 
