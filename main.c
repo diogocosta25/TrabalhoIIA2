@@ -26,7 +26,7 @@ int carregar_instancia(const char *path){
     }
     
     if (fscanf(f, "%d %d", &C, &m) != 2){
-        fprintf(stderr, "Formato inválido na priemira linha\n");
+        fprintf(stderr, "Formato inválido na primeira linha\n");
         fclose(f);
         return 0;
     }
