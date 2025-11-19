@@ -1,0 +1,10 @@
+^C:\USERS\DIOGO\DOCUMENTS\UNI\IIA\TRABALHOIIA2\BUILD\CMAKEFILES\255B525D59517257960959E54111BF1B\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/diogo/Documents/uni/iia/TrabalhoIIA2 -BC:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/build/TP2_Turismo.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

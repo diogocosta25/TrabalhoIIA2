@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20251119-2110-Experimental"
+	Name="(empty)"
+	Generator="ctest-4.1.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="Diogo"
+	OSRelease=" Professional"
+	OSVersion=" (Build 26200)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="4"
+	ModelName="AMD Ryzen 7 7840HS w/ Radeon 780M Graphics"
+	ProcessorCacheSize="64"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="32166"
+	TotalPhysicalMemory="28454"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3801"
+	>
+	<Testing>
+		<StartDateTime>Nov 19 21:13 Hora padr[NON-UTF-8-BYTE-0xE3]o de GMT</StartDateTime>
+		<StartTestTime>1763586834</StartTestTime>
+		<TestList/>
+		<EndDateTime>Nov 19 21:13 Hora padr[NON-UTF-8-BYTE-0xE3]o de GMT</EndDateTime>
+		<EndTestTime>1763586834</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

@@ -1,102 +1,104 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+#include <string.h>
+#include <time.h>
+#include "algoritmo.h"
+#include "utils.h"
+#include "funcao.h"
 
-#define MAX_C 500
+#define DEFAULT_RUNS 10
 
-double distancias [MAX_C][MAX_C];
+int main(int argc, char* argv[]) {
+    char nome_fich[100];   
+    int runs, alg_choice;
+    int *sol, *best;       
+    double custo, best_custo; 
+    double mbf = 0.0;      
+    int C, m; 
 
-typedef struct{
-    int locais[MAX_C];
-    int num_locais;
-    double fitness;
-}Solucao;
-
-int C, m;
-
-int obter_id(char *str){
-    return atoi(&str[1])-1;
-}
-
-int carregar_instancia(const char *path){
-    FILE *f = fopen(path, "r");
-    if(!f){
-        perror("Erro ao abrir o arquivo");
-        return 0;
+    if (argc == 3) {
+        strcpy(nome_fich, argv[1]);
+        runs = atoi(argv[2]);
+        printf("Escolha o algoritmo (1-Trepa Colinas, 2-Evolutivo, 3-Hibrido): ");
+        scanf("%d", &alg_choice);
+    } else {
+        runs = DEFAULT_RUNS;
+        printf("Nome do Ficheiro (ex: tourism_5.txt): ");
+        scanf("%s", nome_fich); 
+        printf("Numero de execucoes (min 10): ");
+        scanf("%d", &runs);
+        printf("Escolha o algoritmo:\n");
+        printf("1 - Trepa-Colinas (Pesquisa Local)\n");
+        printf("2 - Algoritmo Evolutivo\n");
+        printf("3 - Hibrido\n");
+        printf("Opcao: ");
+        scanf("%d", &alg_choice);
     }
+
+    init_rand(); 
     
-    if (fscanf(f, "%d %d", &C, &m) != 2){
-        fprintf(stderr, "Formato inválido na primeira linha\n");
-        fclose(f);
-        return 0;
+    if (carregar_instancia(nome_fich, &C, &m) == 0) {
+        fprintf(stderr, "Erro ao carregar o ficheiro.\n");
+        return 1;
     }
 
-    if(C<=0 || C > MAX_C){
-        fprintf(stderr,"Numero de candidaturas (%d) fora dos limites [1, %d].\n", C, MAX_C);
-        fclose(f);
-        return 0;
+    sol = malloc(sizeof(int) * m);
+    best = malloc(sizeof(int) * m);
+    
+    if (!sol || !best) {
+        fprintf(stderr, "Erro de memoria.\n");
+        return 1;
     }
 
-    if(m<=0 || m > C){
-        fprintf(stderr, "Numero de locais a construir (%d) invalido (tem de estar entre 1 e %d).\n", m, C);
-        fclose(f);
-        return 0;
-    }
+    best_custo = -1.0; 
 
-    for (int i = 0; i < C; i++) {
-        for (int j = 0; j < C; j++) {
-            if(fscanf(f, "%lf", &distancias[i][j]) != 1){
-                fprintf(stderr, "Dados insuficientes ou inválidos ao ler distâncias (%d,%d).\n", i, j);
-                fclose(f);
-                return 0;
-            }
+    for (int k = 0; k < runs; k++) {
+        gera_sol_inicial(sol, m, C);
+
+        switch (alg_choice) {
+            case 1:
+                custo = trepa_colinas(sol, m, C, 1000); 
+                break;
+            
+            case 2:
+                printf("Evolutivo ainda nao implementado nesta main.\n");
+                custo = 0.0;
+                break;
+                
+            case 3:
+                printf("Hibrido ainda nao implementado nesta main.\n");
+                custo = 0.0;
+                break;
+                
+            default:
+                printf("Opcao invalida.\n");
+                return 1;
         }
-    }
-    fclose(f);
-    return 1;
-}
 
-double avaliar_solucao(const Solucao *s){
-    if(s->num_locais != m){
-        return -INFINITY;
-}
+        printf("\nRepeticao %d:", k + 1);
+        escreve_sol(sol, m); 
+        printf(" Fitness Final: %.4f\n", custo);
 
-    double soma = 0.0;
-    int pares = 0;
+        mbf += custo;
 
-    for(int i = 0; i < s->num_locais; i++){
-        int idx_i = s->locais[i];
-        if(idx_i < 0 || idx_i>= C){
-            return -INFINITY;
-        }
-        for(int j = i+1; j < s->num_locais; j++){
-            int idx_j = s->locais[j];
-            if(idx_j < 0 || idx_j>= C){
-                return -INFINITY;
-            }
-            soma += distancias[idx_i][idx_j];
-            pares++;
+        if (custo > best_custo) {
+            best_custo = custo;
+            for(int i=0; i<m; i++) best[i] = sol[i];
         }
     }
 
-    if (pares == 0){
-        return -INFINITY;
-    }
-    return (2.0 * soma) / (m *(m - 1));
+    printf("\n========================================\n");
+    printf("RESULTADOS FINAIS (%d execucoes)\n", runs);
+    printf("========================================\n");
+    printf("Algoritmo: %d\n", alg_choice);
+    printf("Melhor Fitness Encontrado (Best): %.4f\n", best_custo);
+    printf("Media dos Fitness (MBF): %.4f\n", mbf / runs);
+    printf("Melhor Solucao: ");
+    escreve_sol(best, m);
+    printf("\n");
 
+    free(sol);
+    free(best);
+
+    return 0;
 }
-
-int main(int argc, char **argv){
-    if(argc < 2){
-        fprintf(stderr, "Uso: %s <ficheiro_instancia>\n", argv[0]);
-        return EXIT_FAILURE;
-    }
-
-    if (!carregar_instancia(argv[1])){
-        return EXIT_FAILURE;
-    }
-
-    printf("Instancia carregada com sucesso: C=%d, m=%d\n", C, m);
-    return EXIT_SUCCESS;
-}
-

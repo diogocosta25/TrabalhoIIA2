@@ -1,0 +1,3 @@
+C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/cmake-build-debug/CMakeFiles/TP2_Turismo.dir
+C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
