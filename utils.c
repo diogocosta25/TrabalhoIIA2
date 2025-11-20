@@ -7,6 +7,7 @@
 double distancias[500][500];
 
 int obter_id(char *str) {
+    if (!str || strlen(str) < 2) return -1;
     return atoi(&str[1]) - 1;
 }
 
@@ -24,9 +25,25 @@ float rand_01() {
 
 int carregar_instancia(char *path, int *C, int *m){
     FILE *f = fopen(path, "r");
-    if(!f) return 0;
+    
+    if (!f) {
+        char temp[256];
+        sprintf(temp, "../%s", path);
+        f = fopen(temp, "r");
+    }
+    if (!f) {
+        char temp[256];
+        sprintf(temp, "../../%s", path);
+        f = fopen(temp, "r");
+    }
+
+    if(!f) {
+        perror("Erro fatal ao abrir ficheiro");
+        return 0;
+    }
     
     if (fscanf(f, "%d %d", C, m) != 2) {
+        fprintf(stderr, "Erro: Formato invalido na primeira linha\n");
         fclose(f);
         return 0;
     }
@@ -45,20 +62,21 @@ int carregar_instancia(char *path, int *C, int *m){
             distancias[id2][id1] = dist;
         }
     }
+    
     fclose(f);
     return 1;
 }
 
 void gera_sol_inicial(int *sol, int m, int C) {
+    for(int i=0; i<m; i++) sol[i] = -1;
+    
     int escolhidos = 0;
     while(escolhidos < m) {
         int candidato = random_l_h(0, C - 1);
-        
         int existe = 0;
         for(int i=0; i<escolhidos; i++) {
             if(sol[i] == candidato) { existe = 1; break; }
         }
-        
         if(!existe) {
             sol[escolhidos] = candidato;
             escolhidos++;

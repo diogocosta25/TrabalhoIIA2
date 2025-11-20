@@ -5,39 +5,57 @@
 #include "utils.h"
 
 void gera_vizinho(int *sol, int *vizinho, int m, int C) {
-    // 1. Copia a solução atual para o vizinho
-    for(int i = 0; i < m; i++) {
-        vizinho[i] = sol[i];
-    }
+    for(int i = 0; i < m; i++) vizinho[i] = sol[i];
 
     int indice_sair = random_l_h(0, m - 1);
-    int id_sair = vizinho[indice_sair];
-
     int id_entrar;
     int valido = 0;
     
     while(!valido) {
         id_entrar = random_l_h(0, C - 1);
-        
         valido = 1;
         for(int i = 0; i < m; i++) {
-            if(vizinho[i] == id_entrar) {
-                valido = 0;
-                break;
-            }
+            if(vizinho[i] == id_entrar) { valido = 0; break; }
         }
     }
+
     vizinho[indice_sair] = id_entrar;
 }
 
+void gera_vizinho2(int *sol, int *vizinho, int m, int C) {
+    for(int i = 0; i < m; i++) vizinho[i] = sol[i];
+
+    for(int k = 0; k < 2; k++) {
+        int indice_sair = random_l_h(0, m - 1);
+        int id_entrar;
+        int valido = 0;
+        
+        while(!valido) {
+            id_entrar = random_l_h(0, C - 1);
+            valido = 1;
+            for(int i = 0; i < m; i++) {
+                if(vizinho[i] == id_entrar) { valido = 0; break; }
+            }
+        }
+        vizinho[indice_sair] = id_entrar;
+    }
+}
 
 double trepa_colinas(int *sol, int m, int C, int num_iter) {
     int *vizinho = malloc(sizeof(int) * m);
+    if (!vizinho) {
+        fprintf(stderr, "Erro de memoria.\n");
+        return -1.0;
+    }
     double fitness_atual = avaliar_solucao(sol, m);
     double fitness_vizinho;
 
     for(int i = 0; i < num_iter; i++) {
-        gera_vizinho(sol, vizinho, m, C);
+        if(rand_01() < 0.5) {
+            gera_vizinho(sol, vizinho, m, C);
+        } else {
+            gera_vizinho2(sol, vizinho, m, C);
+        }
         
         fitness_vizinho = avaliar_solucao(vizinho, m);
 

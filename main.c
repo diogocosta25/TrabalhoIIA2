@@ -5,6 +5,8 @@
 #include "algoritmo.h"
 #include "utils.h"
 #include "funcao.h"
+#include "algoritmo2.h"
+#include "algoritmo3.h"
 
 #define DEFAULT_RUNS 10
 
@@ -35,6 +37,7 @@ int main(int argc, char* argv[]) {
         scanf("%d", &alg_choice);
     }
 
+    
     init_rand(); 
     
     if (carregar_instancia(nome_fich, &C, &m) == 0) {
@@ -61,22 +64,21 @@ int main(int argc, char* argv[]) {
                 break;
             
             case 2:
-                printf("Evolutivo ainda nao implementado nesta main.\n");
-                custo = 0.0;
+                custo = algoritmo_evolutivo(sol, m, C, 50, 100);
                 break;
                 
             case 3:
-                printf("Hibrido ainda nao implementado nesta main.\n");
-                custo = 0.0;
-                break;
+            printf(">>> HIBRIDO 1: Evolutivo + Refinamento Local <<<\n");
+            custo = hibrido_refinamento_final(sol, m, C, 50, 100, 1000);
+            break;
                 
             default:
                 printf("Opcao invalida.\n");
                 return 1;
         }
 
-        printf("\nRepeticao %d:", k + 1);
-        escreve_sol(sol, m); 
+        //printf("\nRepeticao %d:", k + 1);
+        //escreve_sol(sol, m); 
         printf(" Fitness Final: %.4f\n", custo);
 
         mbf += custo;

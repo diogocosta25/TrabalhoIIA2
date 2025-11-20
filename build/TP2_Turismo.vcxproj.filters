@@ -1,25 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\diogo\Documents\uni\iia\TrabalhoIIA2\main.c">
+    <ClCompile Include="C:\Users\user\Documents\uni\iia\TrabalhoIIA2\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\diogo\Documents\uni\iia\TrabalhoIIA2\utils.c">
+    <ClCompile Include="C:\Users\user\Documents\uni\iia\TrabalhoIIA2\utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\diogo\Documents\uni\iia\TrabalhoIIA2\funcao.c">
+    <ClCompile Include="C:\Users\user\Documents\uni\iia\TrabalhoIIA2\funcao.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\diogo\Documents\uni\iia\TrabalhoIIA2\algoritmo.c">
+    <ClCompile Include="C:\Users\user\Documents\uni\iia\TrabalhoIIA2\algoritmo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\iia\TrabalhoIIA2\algoritmo2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\iia\TrabalhoIIA2\algoritmo3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\diogo\Documents\uni\iia\TrabalhoIIA2\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\user\Documents\uni\iia\TrabalhoIIA2\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{92E95B92-988D-3707-9ED8-DBFC441FCC3B}</UniqueIdentifier>
+      <UniqueIdentifier>{E97F3C13-47B7-37CF-945E-1A8CE18DB02E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

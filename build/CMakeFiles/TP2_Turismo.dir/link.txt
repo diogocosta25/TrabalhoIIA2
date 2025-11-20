@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\TP2_Turismo.dir/objects.a
-C:\MinGW\bin\ar.exe qc CMakeFiles\TP2_Turismo.dir/objects.a @CMakeFiles\TP2_Turismo.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe  -g -Wl,--whole-archive CMakeFiles\TP2_Turismo.dir/objects.a -Wl,--no-whole-archive -o TP2_Turismo.exe -Wl,--out-implib,libTP2_Turismo.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\TP2_Turismo.dir\linkLibs.rsp
