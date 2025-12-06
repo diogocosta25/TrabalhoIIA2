@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe    -g -o CMakeFiles\\TP2_Turismo.dir\\main.c.obj -c C:\\Users\\diogo\\Documents\\uni\\iia\\TrabalhoIIA2\\main.c",
+  "file": "C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/main.c",
+  "output": "CMakeFiles/TP2_Turismo.dir/main.c.obj"
+},
+{
+  "directory": "C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe    -g -o CMakeFiles\\TP2_Turismo.dir\\utils.c.obj -c C:\\Users\\diogo\\Documents\\uni\\iia\\TrabalhoIIA2\\utils.c",
+  "file": "C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/utils.c",
+  "output": "CMakeFiles/TP2_Turismo.dir/utils.c.obj"
+},
+{
+  "directory": "C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe    -g -o CMakeFiles\\TP2_Turismo.dir\\funcao.c.obj -c C:\\Users\\diogo\\Documents\\uni\\iia\\TrabalhoIIA2\\funcao.c",
+  "file": "C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/funcao.c",
+  "output": "CMakeFiles/TP2_Turismo.dir/funcao.c.obj"
+},
+{
+  "directory": "C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe    -g -o CMakeFiles\\TP2_Turismo.dir\\algoritmo.c.obj -c C:\\Users\\diogo\\Documents\\uni\\iia\\TrabalhoIIA2\\algoritmo.c",
+  "file": "C:/Users/diogo/Documents/uni/iia/TrabalhoIIA2/algoritmo.c",
+  "output": "CMakeFiles/TP2_Turismo.dir/algoritmo.c.obj"
+}
+]
