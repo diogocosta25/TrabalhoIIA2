@@ -6,6 +6,5 @@ typedef struct {
     double fitness;
 } Individuo;
 
-double algoritmo_evolutivo(int *sol, int m, int C, int pop_size, int num_geracoes);
-
+double algoritmo_evolutivo(int *sol, int m, int C, int pop_size, int num_geracoes, float prob_recombinacao, float prob_mutacao);
 #endif

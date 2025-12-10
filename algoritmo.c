@@ -85,6 +85,5 @@ double trepa_colinas(int *sol, int m, int C, int num_iter) {
         }
     }
 
-    free(vizinho);
     return fitness_atual;
 }

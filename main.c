@@ -60,11 +60,11 @@ int main(int argc, char* argv[]) {
 
         switch (alg_choice) {
             case 1:
-                custo = trepa_colinas(sol, m, C, 1000);
+                custo = trepa_colinas(sol, m, C, 500);
                 break;
             
             case 2:
-                custo = algoritmo_evolutivo(sol, m, C, 50, 100);
+                custo = algoritmo_evolutivo(sol, m, C, 50, 100, 0.5, 0.7);
                 break;
                 
             case 3:
@@ -77,8 +77,8 @@ int main(int argc, char* argv[]) {
                 return 1;
         }
 
-        //printf("\nRepeticao %d:", k + 1);
-        //escreve_sol(sol, m); 
+        printf("\nRepeticao %d:", k + 1);
+        escreve_sol(sol, m);
         printf(" Fitness Final: %.4f\n", custo);
 
         mbf += custo;
