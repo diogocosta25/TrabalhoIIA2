@@ -47,8 +47,7 @@ void gera_vizinho2(int *sol, int *vizinho, int m, int C) {
     }
 }
 
-double trepa_colinas(int *sol, int m, int C, int num_iter) {
-    int *vizinho = malloc(sizeof(int) * m);
+double trepa_colinas(int *sol, int m, int C, int num_iter, int *vizinho) {
     if (!vizinho) {
         fprintf(stderr, "Erro de memoria.\n");
         return -1.0;

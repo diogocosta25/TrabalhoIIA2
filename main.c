@@ -32,7 +32,8 @@ int main(int argc, char* argv[]) {
         printf("Escolha o algoritmo:\n");
         printf("1 - Trepa-Colinas (Pesquisa Local)\n");
         printf("2 - Algoritmo Evolutivo\n");
-        printf("3 - Hibrido\n");
+        printf("3 - Hibrido 1\n");
+        printf("4 - Hibrido 2\n");
         printf("Opcao: ");
         scanf("%d", &alg_choice);
     }
@@ -48,6 +49,7 @@ int main(int argc, char* argv[]) {
     sol = malloc(sizeof(int) * m);
     best = malloc(sizeof(int) * m);
     
+    
     if (!sol || !best) {
         fprintf(stderr, "Erro de memoria.\n");
         return 1;
@@ -55,12 +57,18 @@ int main(int argc, char* argv[]) {
 
     best_custo = -1.0; 
 
+    int *vizinho_aux = malloc(sizeof(int) * m);
+    if (!vizinho_aux) {
+    fprintf(stderr, "Erro de memoria.\n");
+    return 1;
+}
+
     for (int k = 0; k < runs; k++) {
         gera_sol_inicial(sol, m, C);
 
         switch (alg_choice) {
             case 1:
-                custo = trepa_colinas(sol, m, C, 500);
+                custo = trepa_colinas(sol, m, C, 500, vizinho_aux);
                 break;
             
             case 2:
@@ -71,6 +79,11 @@ int main(int argc, char* argv[]) {
             printf(">>> HIBRIDO 1: Evolutivo + Refinamento Local <<<\n");
             custo = hibrido_refinamento_final(sol, m, C, 50, 100, 1000);
             break;
+
+            case 4:
+                printf(">>> HIBRIDO 2: Algoritmo Memetico <<<\n");
+                custo = hibrido_memetico(sol, m, C, 50, 100); 
+                break;
                 
             default:
                 printf("Opcao invalida.\n");
@@ -101,6 +114,6 @@ int main(int argc, char* argv[]) {
 
     free(sol);
     free(best);
-
+    free(vizinho_aux);
     return 0;
 }
