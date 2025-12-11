@@ -39,7 +39,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/user/Documents/uni/iia/TrabalhoIIA2/build"
+			"value" : "c:/Users/user/Documents/uni/iia/TrabalhoIIA2-2/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -347,7 +347,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/user/Documents/uni/iia/TrabalhoIIA2/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/user/Documents/uni/iia/TrabalhoIIA2-2/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -407,7 +407,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/user/Documents/uni/iia/TrabalhoIIA2"
+			"value" : "C:/Users/user/Documents/uni/iia/TrabalhoIIA2-2"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -543,7 +543,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "CMAKE_MT-NOTFOUND"
+			"value" : "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/mt.exe"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -643,7 +643,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "rc"
+			"value" : "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER_WORKS",
@@ -967,7 +967,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/user/Documents/uni/iia/TrabalhoIIA2/build"
+			"value" : "C:/Users/user/Documents/uni/iia/TrabalhoIIA2-2/build"
 		},
 		{
 			"name" : "TP2_Turismo_IS_TOP_LEVEL",
@@ -991,7 +991,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/user/Documents/uni/iia/TrabalhoIIA2"
+			"value" : "C:/Users/user/Documents/uni/iia/TrabalhoIIA2-2"
 		}
 	],
 	"kind" : "cache",

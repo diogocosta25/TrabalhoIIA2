@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
     if (argc == 3) {
         strcpy(nome_fich, argv[1]);
         runs = atoi(argv[2]);
-        printf("Escolha o algoritmo (1-Trepa Colinas, 2-Evolutivo, 3-Hibrido): ");
+        printf("Escolha o algoritmo (1-Trepa Colinas, 2-Evolutivo, 3-Hib.Refinamento, 4-Hib.Memetico): ");
         scanf("%d", &alg_choice);
     } else {
         runs = DEFAULT_RUNS;
